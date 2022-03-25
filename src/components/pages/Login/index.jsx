@@ -7,8 +7,7 @@ import api from '../../../api';
 
 import { setAccessToken, setPerson } from '../../../redux/actions/authActions';
 
-import Field from '../../ui/Field';
-import Button from '../../ui/Button';
+import { Button, Field } from 'naikaric-components-library';
 
 const Login = props => {
     const { title, fingerprint } = props;

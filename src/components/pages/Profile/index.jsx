@@ -5,7 +5,7 @@ import api from '../../../api';
 
 import { setAccessToken, setPerson } from '../../../redux/actions/authActions';
 
-import Button from '../../ui/Button';
+import { Button } from 'naikaric-components-library';
 
 const Profile = props => {
     const { title } = props;
