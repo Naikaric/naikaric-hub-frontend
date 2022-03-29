@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const HOST = process.env.REACT_APP_BACKEND_HOST;
+
 const request = async(type, callback, config) => {
     try {
         const res = await axios[type](...config);
@@ -12,21 +14,26 @@ const request = async(type, callback, config) => {
 const api = {
     user: {
         create: (data, callback) => request('post', callback,
-            [`${process.env.REACT_APP_BACKEND_HOST}/api/user`, { data }]
+            [`${HOST}/api/user`, { data }]
         ),
         get: (accessToken, id, callback) => request('get', callback,
-            [`${process.env.REACT_APP_BACKEND_HOST}/api/user/${id}`, { headers: { accessToken } }]
+            [`${HOST}/api/user/${id}`, { headers: { accessToken } }]
         ),
     },
     auth: {
         login: (data, callback) => request('post', callback,
-            [`${process.env.REACT_APP_BACKEND_HOST}/api/auth/login`, { data }, { withCredentials: true }]
+            [`${HOST}/api/auth/login`, { data }, { withCredentials: true }]
         ),
         refreshTokens: (fingerprint, callback) => request('post', callback,
-            [`${process.env.REACT_APP_BACKEND_HOST}/api/auth/refreshTokens`, { fingerprint }, { withCredentials: true }]
+            [`${HOST}/api/auth/refreshTokens`, { fingerprint }, { withCredentials: true }]
         ),
         logout: (accessToken, callback) => request('get', callback,
-            [`${process.env.REACT_APP_BACKEND_HOST}/api/auth/logout`, { headers: { accessToken }, withCredentials: true }]
+            [`${HOST}/api/auth/logout`, { headers: { accessToken }, withCredentials: true }]
+        ),
+    },
+    OAuth2: {
+        createOAuth2Code: (accessToken, callback) => request('get', callback,
+            [`${HOST}/api/OAuth2/createOAuth2Code`, { headers : { accessToken } }]
         ),
     },
 };

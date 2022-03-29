@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import api from '../../../api';
@@ -10,10 +10,11 @@ import { setAccessToken, setPerson } from '../../../redux/actions/authActions';
 import { Button, Field } from 'naikaric-components-library';
 
 const Login = props => {
-    const { title, fingerprint } = props;
+    const { title, fingerprint, OAuth2 } = props;
     const { setAccessToken, setPerson } = props;
 
     const { register, handleSubmit, setError, clearErrors, formState: { errors } } = useForm({ shouldFocusError: false, });
+    const location = useLocation();
     const navigate = useNavigate();
 
     const onSubmit = data => {
@@ -26,7 +27,13 @@ const Login = props => {
 
                     setAccessToken(accessToken);
                     setPerson(user);
-                    navigate('/profile');
+                    if(OAuth2) {
+                        const redirectUrl = new URLSearchParams(location.search).get('redirect_url');
+                        
+                        navigate(`/OAuth2/permission?redirect_url=${redirectUrl}`);
+                    } else {
+                        navigate('/profile');
+                    }
                 } else {
                     setError(res.data.error.type, { type: 'manual', message: res.data.error.message });
                 }
@@ -38,7 +45,7 @@ const Login = props => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <Link to={'/'}>На главную</Link>
+            {!OAuth2 && <Link to={'/'}>На главную</Link>}
             <h1>{title}</h1>
             <fieldset>
                 <Field type='text' label='Введите номер телефона' required hookForm={{

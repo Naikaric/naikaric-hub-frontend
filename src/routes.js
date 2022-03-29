@@ -1,5 +1,7 @@
 import IsAuthorized from './hocs/validation/IsAuthorized';
 
+import PermissionWindow from './components/OAuth2/PermissionWindow';
+
 import Main from './components/pages/Main';
 import Login from './components/pages/Login';
 import Registration from './components/pages/Registration';
@@ -29,6 +31,18 @@ const routes = [
         element: <IsAuthorized><Profile title='Личная страница' /></IsAuthorized>,
         exact: true,
         key: 'Личная страница',
+    },
+    {
+        path: '/OAuth2/',
+        element: <IsAuthorized revertLogic OAuth2><Login OAuth2 title='Страница авторизации' /></IsAuthorized>,
+        exact: true,
+        key: 'Страница авторизации 2',
+    },
+    {
+        path: '/OAuth2/permission',
+        element: <IsAuthorized OAuth2><PermissionWindow OAuth2 title='Запрос на предоставление данных' /></IsAuthorized>,
+        exact: true,
+        key: 'Запрос на предоставление данных',
     },
 ];
 

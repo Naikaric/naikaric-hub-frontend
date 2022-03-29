@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 
 import api from '../../api';
 
@@ -9,10 +9,11 @@ import { setPerson } from '../../redux/actions/authActions';
 import { getPayloadToken } from '../../utils';
 
 const IsAuthorized = props => {
-    const { revertLogic } = props;
+    const { revertLogic, OAuth2 } = props;
     const { accessToken, fingerprint, person, refreshTokens, authorizedRequest } = props.auth;
     const { setPerson } = props;
 
+    const location = useLocation();
     const [isFetching, setFetching] = useState(true);
     const [isTokenLoaded, setTokenLoaded] = useState(null);
     const [isPersonLoaded, setPersonLoaded] = useState(null);
@@ -76,7 +77,13 @@ const IsAuthorized = props => {
             }
         } else {
             if(isTokenLoaded && isPersonLoaded) {
-                return <Navigate to={'/profile'} />;
+                if(OAuth2) {
+                    const redirectUrl = new URLSearchParams(location.search).get('redirect_url');
+
+                    return <Navigate to={`/OAuth2/permission?redirect_url=${redirectUrl}`} />;
+                } else {
+                    return <Navigate to={'/profile'} />;
+                }
             } else {
                 return props.children;
             }
