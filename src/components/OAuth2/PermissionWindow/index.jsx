@@ -7,7 +7,7 @@ import api from '../../../api';
 import { Button } from 'naikaric-components-library/dist';
 
 const PermissionWindow = props => {
-    const { accessToken } = props;
+    const { accessToken, person } = props.auth;
     
     const location = useLocation();
 
@@ -31,22 +31,22 @@ const PermissionWindow = props => {
         <div>
             <h1>{props.title}</h1>
             <div>
-                <p>Вы собираетесь передать ресурсу следующие данные:
+                <p>{person.name}, Вы собираетесь передать сайту следующие данные:
                 </p>
                 <ul>
                     <li>Имя</li>
                     <li>Фамилия</li>
                     <li>Номер телефона</li>
                 </ul>
-                <Button onClick={onAgree}>Да, я согласен</Button>
-                <Button onClick={() => onAgree(false)}>Нет, я против</Button>
+                <Button onClick={onAgree}>Продолжить</Button>
+                <Button onClick={() => onAgree(false)}>Отменить</Button>
             </div>
         </div>
     );
 };
 
 const mapStateToProps = store => ({
-    accessToken: store.auth.accessToken,
+    auth: store.auth,
 });
 
 const mapDispatchToProps = dispatch => ({});
