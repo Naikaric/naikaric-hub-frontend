@@ -1,13 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate, Link, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import api from '../../../api';
 
 import { setAccessToken, setPerson } from '../../../redux/actions/authActions';
 
-import { Button, Field } from 'naikaric-components-library';
+import { Button, Field, Hlink } from 'naikaric-react-components-library';
 
 const Login = props => {
     const { title, fingerprint, OAuth2 } = props;
@@ -45,7 +45,7 @@ const Login = props => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            {!OAuth2 && <Link to={'/'}>На главную</Link>}
+            {!OAuth2 && <Hlink to={'/'}>На главную</Hlink>}
             <h1>{title}</h1>
             <fieldset>
                 <Field type='text' label='Введите номер телефона' required hookForm={{
@@ -61,7 +61,6 @@ const Login = props => {
                     },
                     errors,
                 }} />
-                <br />
                 <Field type='password' label='Введите пароль' required hookForm={{
                     register,
                     settings: {

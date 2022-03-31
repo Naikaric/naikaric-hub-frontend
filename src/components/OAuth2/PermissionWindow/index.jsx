@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 import api from '../../../api';
 
-import { Button } from 'naikaric-components-library/dist';
+import { Button } from 'naikaric-react-components-library';
 
 const PermissionWindow = props => {
     const { accessToken, person } = props.auth;

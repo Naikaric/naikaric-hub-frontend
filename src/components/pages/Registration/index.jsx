@@ -1,13 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import api from '../../../api';
 
 import { setAccessToken } from '../../../redux/actions/authActions';
 
-import { Button, Field } from 'naikaric-components-library';
+import { Button, Field, Hlink } from 'naikaric-react-components-library';
 
 const Registration = props => {
     const { register, handleSubmit, getValues, setError, formState: { errors } } = useForm({ shouldFocusError: false, });
@@ -29,7 +29,7 @@ const Registration = props => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <Link to={'/'}>На главную</Link>
+            <Hlink to={'/'}>На главную</Hlink>
             <h1>{props.title}</h1>
             <fieldset>
                 <Field type='text' label='Введите имя' required hookForm={{
@@ -39,7 +39,6 @@ const Registration = props => {
                     },
                     errors,
                 }} />
-                <br />
                 <Field type='text' label='Введите фамилию' required hookForm={{
                     register,
                     settings: {
@@ -47,7 +46,6 @@ const Registration = props => {
                     },
                     errors,
                 }} />
-                <br />
                 <Field type='text' label='Введите отчество' hookForm={{
                     register,
                     settings: {
@@ -55,7 +53,6 @@ const Registration = props => {
                     },
                     errors,
                 }} />
-                <br />
                 <Field type='text' label='Введите номер телефона' required hookForm={{
                     register,
                     settings: {
@@ -77,7 +74,6 @@ const Registration = props => {
                     },
                     errors,
                 }} />
-                <br />
                 <Field type='password' label='Повторите пароль' required hookForm={{
                     register,
                     settings: {

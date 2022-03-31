@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+import { Hlink } from 'naikaric-react-components-library';
 
 const Main = props => {
     const { title } = props;
@@ -8,8 +9,8 @@ const Main = props => {
         <div>
             <h1>{title}</h1>
             <div>
-                <Link to={'/login'}>Войти</Link>
-                <Link to={'/registration'}>Зарегистрироваться</Link>
+                <Hlink to={'/login'}>Войти</Hlink>
+                <Hlink to={'/registration'}>Зарегистрироваться</Hlink>
             </div>
         </div>
     );
