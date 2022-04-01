@@ -1,7 +1,9 @@
 {
-  "name": "frontend",
+  "name": "Naikaric hub - frontend",
   "version": "0.1.0",
   "private": true,
+  "description": "Client of Naikaric huby",
+  "author": "Naikaric",
   "dependencies": {
     "@fingerprintjs/fingerprintjs": "^3.3.3",
     "@testing-library/jest-dom": "^5.16.2",

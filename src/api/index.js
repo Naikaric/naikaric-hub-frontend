@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const HOST = process.env.REACT_APP_BACKEND_HOST;
+const HOST = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_BACKEND_HOST : '';
 
 const request = async(type, callback, config) => {
     try {
