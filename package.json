@@ -2,7 +2,7 @@
   "name": "naikaric-hub-frontend",
   "version": "0.1.0",
   "private": true,
-  "description": "Client of Naikaric huby",
+  "description": "Client of Naikaric hub",
   "author": "Naikaric",
   "dependencies": {
     "@fingerprintjs/fingerprintjs": "^3.3.3",
