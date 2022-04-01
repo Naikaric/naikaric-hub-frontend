@@ -33,7 +33,7 @@ const routes = [
         key: 'Личная страница',
     },
     {
-        path: '/OAuth2/',
+        path: '/OAuth2',
         element: <IsAuthorized revertLogic OAuth2><Login OAuth2 title='Страница авторизации' /></IsAuthorized>,
         exact: true,
         key: 'Страница авторизации 2',
