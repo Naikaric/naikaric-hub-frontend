@@ -10,6 +10,8 @@
 - [Серверная часть](https://github.com/Naikaric/naikaric-hub-backend)
 
 ## Работа с проектом
+Вначале запускаем [сервер](https://github.com/Naikaric/naikaric-hub-backend)
+
 Устанавливаем зависимости
 ```sh
 npm install
