@@ -1,10 +1,10 @@
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/Naikaric/naikaric-hub-frontend/master?style=plastic) ![GitHub](https://img.shields.io/github/license/Naikaric/naikaric-hub-frontend)
 
-# [Naikaric hub](https://naikaric-hub.herokuapp.com/): клиентская часть
+# [Naikaric hub](http://www.nikitachurilin.ru/): клиентская часть
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white) ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 
 ## Общее
-(в планах) [Naikaric hub](https://naikaric-hub.herokuapp.com/) это агрегатор моих проектов, статей и новостей о том, что происходит в моей жизни.
+(в планах) [Naikaric hub](http://www.nikitachurilin.ru/) это агрегатор моих проектов, статей и новостей о том, что происходит в моей жизни.
 
 - Клиентская часть (Вы сейчас здесь)
 - [Серверная часть](https://github.com/Naikaric/naikaric-hub-backend)
