@@ -1,11 +1,27 @@
 .news-card {
+    background-size: cover, 100% auto;
+    background-position: center;
+    border-radius: 20px;
+    padding: 20px;
     position: relative;
-}
+    transition: .3s;
 
-.news-card__link {
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
+    &:hover {
+        background-size: cover, 125% auto;
+    }
+
+    &__date {
+        color: #4a4a4a;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
+
+    &__link {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
 }

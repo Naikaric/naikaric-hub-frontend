@@ -1,8 +1,8 @@
-import { SET_ALL_CASES, SET_CURRENT_CASE } from "../actions/caseActions";
+import { SET_ALL_CASES, ADD_OPENED_CASE } from "../actions/caseActions";
 
 export const initialState = {
     list: null,
-    currentCase: null,
+    openedCases: {},
 };
 
 export function caseReducer(state = initialState, action) {
@@ -10,8 +10,11 @@ export function caseReducer(state = initialState, action) {
         case SET_ALL_CASES:
             return { ...state, list: action.payload };
 
-        case SET_CURRENT_CASE:
-            return { ...state, currentCase: action.payload };
+        case ADD_OPENED_CASE:
+            const newOpenedCases = JSON.parse(JSON.stringify(state.openedCases));
+            newOpenedCases[action.payload.id] = {};
+            newOpenedCases[action.payload.id] = action.payload.case;
+            return { ...state, openedCases: newOpenedCases };
     
         default:
             return state;

@@ -1,5 +1,5 @@
 export const SET_ALL_CASES = 'SET_ALL_CASES';
-export const SET_CURRENT_CASE = 'SET_CURRENT_CASE';
+export const ADD_OPENED_CASE = 'ADD_OPENED_CASE';
 
 export const setAllCases = cases => {
     return {
@@ -8,9 +8,9 @@ export const setAllCases = cases => {
     };
 };
 
-export const setCurrentCase = workCase => {
+export const addOpenedCase = workCase => {
     return {
-        type: SET_CURRENT_CASE,
+        type: ADD_OPENED_CASE,
         payload: workCase,
     };
 };

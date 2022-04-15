@@ -1,6 +1,6 @@
 import './cases.scss';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 import api from '../../../api';
@@ -14,23 +14,33 @@ const Cases = props => {
     const { list } = props.cases;
     const { setAllCases } = props;
 
+    const [loading, setLoading] = useState(Boolean(!list?.length));
+
     useEffect(() => {
-        api.case.getAll(accessToken, res => {
-            if(res.status === 200) {
-                if(!res.data.error) {
-                    setAllCases(res.data);
+        if(!list) {
+            api.case.getAll(accessToken, res => {
+                if(res.status === 200) {
+                    if(!res.data.error) {
+                        setAllCases(res.data);
+                    }
+                } else {
+                    console.error(res);
                 }
-            } else {
-                console.error(res);
-            }
-        });
+
+                setLoading(false);
+            });
+        }
     }, []);
 
+    if(loading) return <div>Подождите, идёт загрузка...</div>;
+
     return (
-        <div>
+        <div className='cases'>
             <h1>{title}</h1>
             {
-                list?.map(article => <NewsCard {...article} key={article.id} />)
+                list ?
+                <div className='cases__list'>{ list?.map(article => <NewsCard {...article} key={article.id} />) }</div>
+                : <div>Автор не написал ни одной статьи.</div>
             }
         </div>
     );
