@@ -33,10 +33,10 @@ const Profile = props => {
         <div>
             <h1>{title}</h1>
             <div>
-                {person?.name ? <div>{person?.name}</div> : null}
-                {person?.surname ? <div>{person?.surname}</div> : null}
-                {person?.patronymic ? <div>{person?.patronymic}</div> : null}
-                {person?.phone ? <div>{person?.phone}</div> : null}
+                {person?.name && <div>{person?.name}</div>}
+                {person?.surname && <div>{person?.surname}</div>}
+                {person?.patronymic && <div>{person?.patronymic}</div>}
+                {person?.phone && <div>{person?.phone}</div>}
             </div>
             <Button onClick={logout}>Выйти из учётной записи</Button>
         </div>

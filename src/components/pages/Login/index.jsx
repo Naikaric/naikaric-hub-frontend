@@ -70,7 +70,7 @@ const Login = props => {
                     errors,
                 }} />
             </fieldset>
-            {errors.login ? <div>{errors.login.message}</div> : null}
+            {errors.login && <div>{errors.login.message}</div>}
             <Button type='submit'>Войти</Button>
         </form>
     );
