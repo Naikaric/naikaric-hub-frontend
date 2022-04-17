@@ -36,6 +36,14 @@ const api = {
             [`${HOST}/api/OAuth2/createOAuth2Code`, { headers : { accessToken } }]
         ),
     },
+    case: {
+        getAll: (accessToken, callback) => request('get', callback,
+            [`${HOST}/api/case/getAll`, { headers: { accessToken } }]
+        ),
+        get: (id, accessToken, callback) => request('get', callback,
+            [`${HOST}/api/case/get/${id}`, { headers: { accessToken } }]
+        ),
+    },
 };
 
 export default api;

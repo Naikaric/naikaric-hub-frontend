@@ -1,11 +1,15 @@
 import IsAuthorized from './hocs/validation/IsAuthorized';
 
+import WithHeader from './components/layouts/WithHeader';
+
 import PermissionWindow from './components/OAuth2/PermissionWindow';
 
 import Main from './components/pages/Main';
 import Login from './components/pages/Login';
 import Registration from './components/pages/Registration';
 import Profile from './components/pages/Profile';
+import Cases from './components/pages/Cases';
+import News from './components/blocks/News';
 
 const routes = [
     {
@@ -28,7 +32,7 @@ const routes = [
     },
     {
         path: '/profile',
-        element: <IsAuthorized><Profile title='Личная страница' /></IsAuthorized>,
+        element: <IsAuthorized><WithHeader><Profile title='Личная страница' /></WithHeader></IsAuthorized>,
         exact: true,
         key: 'Личная страница',
     },
@@ -43,6 +47,18 @@ const routes = [
         element: <IsAuthorized OAuth2><PermissionWindow OAuth2 title='Запрос на предоставление данных' /></IsAuthorized>,
         exact: true,
         key: 'Запрос на предоставление данных',
+    },
+    {
+        path: '/cases',
+        element: <IsAuthorized><WithHeader><Cases title='Рабочие кейсы' /></WithHeader></IsAuthorized>,
+        exact: true,
+        key: 'Рабочие кейсы',
+    },
+    {
+        path: '/cases/:id',
+        element: <IsAuthorized><WithHeader><News /></WithHeader></IsAuthorized>,
+        exact: true,
+        key: 'Страница рабочего кейса',
     },
 ];
 
