@@ -8,6 +8,8 @@ import api from '../../../api';
 
 import { addOpenedCase } from '../../../redux/actions/caseActions';
 
+import Content from '../../layouts/Content';
+
 const News = props => {
     const { accessToken, openedCases } = props;
     const { addOpenedCase } = props;
@@ -39,10 +41,12 @@ const News = props => {
 
     if(content) {
         return (
-            <article className='news'>
-                <h1>{content?.title}</h1>
-                <div dangerouslySetInnerHTML={{__html: content?.text}} />
-            </article>
+            <Content>
+                <article className='news'>
+                    <h1>{content?.title}</h1>
+                    <div dangerouslySetInnerHTML={{__html: content?.text}} />
+                </article>
+            </Content>
         );
     } else {
         return <div>Не удалось получить статью.</div>

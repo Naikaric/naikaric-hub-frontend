@@ -1,7 +1,37 @@
+@import '../../../variables';
+
 .news {
     padding: 0 20px;
-}
 
-.news img {
-    max-height: 500px;
+    &>h1 {
+        &:not(:last-child) {
+            margin-bottom: 25px;
+        }
+    }
+
+    p {
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+
+    a {
+        color: #12a114;
+    }
+
+    img {
+        max-height: 500px;
+    }
+
+    .block {
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+
+    .flex {
+        column-gap: 20px;
+        display: flex;
+        overflow-x: auto;
+    }
 }

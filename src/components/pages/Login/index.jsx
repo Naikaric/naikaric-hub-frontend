@@ -7,6 +7,7 @@ import api from '../../../api';
 
 import { setAccessToken, setPerson } from '../../../redux/actions/authActions';
 
+import HeadlineEmphasis from '../../layouts/HeadlineEmphasis';
 import { Button, Field, Hlink } from 'naikaric-react-components-library';
 
 const Login = props => {
@@ -44,35 +45,36 @@ const Login = props => {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            {!OAuth2 && <Hlink to={'/'}>На главную</Hlink>}
-            <h1>{title}</h1>
-            <fieldset>
-                <Field type='text' label='Введите номер телефона' required hookForm={{
-                    register,
-                    settings: {
-                        name: 'phone',
-                        pattern: {
-                            value: /\+\d+ \(\d{3}\) \d{3} \d{2}-\d{2}/,
-                            template: '+7 (999) 999 99-99',
-                            message: 'Номер не соответствует шаблону',
+        <HeadlineEmphasis title={title}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                {!OAuth2 && <Hlink to={'/'} className='back-link'>⟵ На главную</Hlink>}
+                <fieldset>
+                    <Field type='text' label='Введите номер телефона' required hookForm={{
+                        register,
+                        settings: {
+                            name: 'phone',
+                            pattern: {
+                                value: /\+\d+ \(\d{3}\) \d{3} \d{2}-\d{2}/,
+                                template: '+7 (999) 999 99-99',
+                                message: 'Номер не соответствует шаблону',
+                            },
+                            onChange: (e) => clearErrors('login'),
                         },
-                        onChange: (e) => clearErrors('login'),
-                    },
-                    errors,
-                }} />
-                <Field type='password' label='Введите пароль' required hookForm={{
-                    register,
-                    settings: {
-                        name: 'password',
-                        onChange: (e) => clearErrors('login'),
-                    },
-                    errors,
-                }} />
-            </fieldset>
-            {errors.login && <div>{errors.login.message}</div>}
-            <Button type='submit'>Войти</Button>
-        </form>
+                        errors,
+                    }} />
+                    <Field type='password' label='Введите пароль' required hookForm={{
+                        register,
+                        settings: {
+                            name: 'password',
+                            onChange: (e) => clearErrors('login'),
+                        },
+                        errors,
+                    }} />
+                </fieldset>
+                {errors.login && <div>{errors.login.message}</div>}
+                <Button type='submit'>Войти</Button>
+            </form>
+        </HeadlineEmphasis>
     );
 };
 

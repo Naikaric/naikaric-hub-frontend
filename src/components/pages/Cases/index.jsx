@@ -7,6 +7,7 @@ import api from '../../../api';
 
 import { setAllCases } from '../../../redux/actions/caseActions';
 
+import Content from '../../layouts/Content';
 import NewsCard from '../../blocks/NewsCard';
 
 const Cases = props => {
@@ -35,14 +36,13 @@ const Cases = props => {
     if(loading) return <div>Подождите, идёт загрузка...</div>;
 
     return (
-        <div className='cases'>
-            <h1>{title}</h1>
+        <Content title={title}>
             {
                 list ?
                 <div className='cases__list'>{ list?.map(article => <NewsCard {...article} key={article.id} />) }</div>
                 : <div>Автор не написал ни одной статьи.</div>
             }
-        </div>
+        </Content>
     );
 };
 

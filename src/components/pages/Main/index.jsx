@@ -1,18 +1,16 @@
 import React from 'react';
 
+import HeadlineEmphasis from '../../layouts/HeadlineEmphasis';
 import { Hlink } from 'naikaric-react-components-library';
 
-const Main = props => {
-    const { title } = props;
-
+const Main = ({title}) => {
     return (
-        <div>
-            <h1>{title}</h1>
-            <div>
+        <HeadlineEmphasis title={title}>
+            <div className='flex'>
                 <Hlink to={'/login'}>Войти</Hlink>
                 <Hlink to={'/registration'}>Зарегистрироваться</Hlink>
             </div>
-        </div>
+        </HeadlineEmphasis>
     );
 };
 

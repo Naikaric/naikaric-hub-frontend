@@ -2,5 +2,13 @@
 
 .header-of-page {
     background: $background-color_main;
-    padding: 10px;
+    padding: 10px $header__pl-pr;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    &>nav {
+        display: flex;
+        justify-content: space-between;
+    }
 }

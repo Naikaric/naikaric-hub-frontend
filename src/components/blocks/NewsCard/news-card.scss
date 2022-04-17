@@ -1,8 +1,10 @@
 .news-card {
     background-size: cover, 100% auto;
     background-position: center;
+    background-repeat: no-repeat;
     border-radius: 20px;
     padding: 20px;
+    padding-top: 30px;
     position: relative;
     transition: .3s;
 
