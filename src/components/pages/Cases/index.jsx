@@ -19,7 +19,7 @@ const Cases = props => {
 
     useEffect(() => {
         if(!list) {
-            api.case.getAll(accessToken, res => {
+            api.case.all(accessToken, res => {
                 if(res.status === 200) {
                     if(!res.data.error) {
                         setAllCases(res.data);
@@ -38,7 +38,7 @@ const Cases = props => {
     return (
         <Content title={title}>
             {
-                list ?
+                list?.length ?
                 <div className='cases__list'>{ list?.map(article => <NewsCard {...article} key={article.id} />) }</div>
                 : <div>Автор не написал ни одной статьи.</div>
             }

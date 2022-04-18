@@ -37,11 +37,11 @@ const api = {
         ),
     },
     case: {
-        getAll: (accessToken, callback) => request('get', callback,
-            [`${HOST}/api/case/getAll`, { headers: { accessToken } }]
+        all: (accessToken, callback) => request('get', callback,
+            [`${HOST}/api/case/all`, { headers: { accessToken } }]
         ),
         get: (id, accessToken, callback) => request('get', callback,
-            [`${HOST}/api/case/get/${id}`, { headers: { accessToken } }]
+            [`${HOST}/api/case/${id}`, { headers: { accessToken } }]
         ),
     },
 };
