@@ -50,13 +50,13 @@ const routes = [
     },
     {
         path: '/cases',
-        element: <IsAuthorized><WithHeader><Cases title='Рабочие кейсы' /></WithHeader></IsAuthorized>,
+        element: <WithHeader><Cases title='Рабочие кейсы' /></WithHeader>,
         exact: true,
         key: 'Рабочие кейсы',
     },
     {
         path: '/cases/:id',
-        element: <IsAuthorized><WithHeader><News /></WithHeader></IsAuthorized>,
+        element: <WithHeader><News /></WithHeader>,
         exact: true,
         key: 'Страница рабочего кейса',
     },
